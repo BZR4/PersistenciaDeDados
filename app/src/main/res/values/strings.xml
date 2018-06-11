@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Data Base Cesario</string>
+    <string name="shared_preference_title">SharedPreferences</string>
+    <string name="shared_preference_content">Shared Preference provê a persistencia de dados em simples arquivos armazenados internamente no device, é a forma mais simples para mater dados simples.</string>
+    <string name="sqlite_title">SQLite Database</string>
+    <string name="sqlite_content">O SQLite é uma versão de SGDBs baseados em SQL que foram adaptados para utilização em mobo devices, hospedando bases de dados localmente.</string>
+    <string name="firebase_title">Google Firebase</string>
+    <string name="firebase_content">O Google Firebase é uma plataforma de serviços de backend para dispositivos móveis que dentre sua gama de serviços oferece o Real-time Database para Android, já integrado ao Android Studio.</string>
+    <string name="title_activity_sqlite">SQLiteActivity</string>
+
+</resources>
