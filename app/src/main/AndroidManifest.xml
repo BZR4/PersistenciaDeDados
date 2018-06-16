@@ -16,11 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SharedPreferenceActivity" />
+        <activity android:name=".SharedPreferenceActivity">
+        </activity>
         <activity
             android:name=".SQLiteActivity"
             android:label="@string/title_activity_sqlite"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".FirebaseActivity" />
+        <activity android:name=".PiadaListActivity"></activity>
     </application>
 
 </manifest>

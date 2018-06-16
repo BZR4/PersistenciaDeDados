@@ -30,6 +30,7 @@ public class DictionaryDatabase extends SQLiteOpenHelper {
 
     }
 
+    //Verifica se o registro ja existe na base de dados e cria ou atualiza
     public void saveRecord(String word, String definition){
         long id = findWordID(word);
         if (id>0) {
@@ -38,6 +39,8 @@ public class DictionaryDatabase extends SQLiteOpenHelper {
             addRecord(word,definition);
         }
     }
+
+    //<editor-fold desc="CRUD">
 
     public long addRecord(String word, String definition) {
         SQLiteDatabase db = getWritableDatabase();
@@ -53,21 +56,20 @@ public class DictionaryDatabase extends SQLiteOpenHelper {
         values.put("_id", id);
         values.put(FIELD_WORD, word);
         values.put(FIELD_DEFINITION, definition);
-        return db.update(TABLE_DICTIONARY, values, "_id = ?",
-                new String[]{String.valueOf(id)});
+        return db.update(TABLE_DICTIONARY, values, "_id = ?", new String[]{String.valueOf(id)});
     }
     public int deleteRecord(long id) {
         SQLiteDatabase db = getWritableDatabase();
-        return db.delete(TABLE_DICTIONARY, "_id = ?", new
-                String[]{String.valueOf(id)});
+        return db.delete(TABLE_DICTIONARY, "_id = ?", new String[]{String.valueOf(id)});
     }
+    //</editor-fold>
+
+    //<editor-fold desc="Getters de dados no banco">
 
     public long findWordID(String word) {
         long returnVal = -1;
         SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.rawQuery(
-                "SELECT _id FROM " + TABLE_DICTIONARY +
-                        " WHERE " + FIELD_WORD + " = ?", new String[]{word});
+        Cursor cursor = db.rawQuery("SELECT _id FROM " + TABLE_DICTIONARY + " WHERE " + FIELD_WORD + " = ?", new String[]{word});
         Log.i("findWordID","getCount()="+cursor.getCount());
         if (cursor.getCount() == 1) {
             cursor.moveToFirst();
@@ -75,7 +77,6 @@ public class DictionaryDatabase extends SQLiteOpenHelper {
         }
         return returnVal;
     }
-
 
     public String getDefinition(long id) {
         String returnVal = "";
@@ -92,4 +93,6 @@ public class DictionaryDatabase extends SQLiteOpenHelper {
         String query = "SELECT _id, " + FIELD_WORD + " FROM " + TABLE_DICTIONARY + " ORDER BY " + FIELD_WORD + " ASC";
         return db.rawQuery(query, null);
     }
+    //</editor-fold>
+
 }

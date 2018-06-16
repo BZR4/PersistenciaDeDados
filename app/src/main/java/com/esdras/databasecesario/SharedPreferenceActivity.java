@@ -8,18 +8,27 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class SharedPreferenceActivity extends AppCompatActivity {
-
     private final String NAME = "NAME";
     EditText editText;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shared_preference);
-        //TODO: Criar instancia de SharedPreferences
+
+        TextView textView = findViewById(R.id.textViewWord);
+        SharedPreferences mSharedPreferences = getPreferences(MODE_PRIVATE);
+        String nome = mSharedPreferences.getString(NAME, null);
+        if (nome != null){
+            textView.setText("Bem-vindo "+nome+"!");
+        }else {
+            textView.setText("");
+        }
+        editText = findViewById(R.id.editTextName);
     }
 
     public void saveName(View view){
-        //TODO: Salvar novos dados em SharedPreferences
+        SharedPreferences.Editor editor = getPreferences(MODE_PRIVATE).edit();
+        editor.putString(NAME,editText.getText().toString().trim());
+        editor.commit();
     }
 }

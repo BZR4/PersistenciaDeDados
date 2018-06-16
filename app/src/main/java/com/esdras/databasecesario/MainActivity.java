@@ -26,10 +26,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), SharedPreferenceActivity.class));
                 break;
             case R.id.cardViewSQLite:
-                show("SQLite");
+//                show("SQLite");
+                startActivity(new Intent(getApplicationContext(), SQLiteActivity.class));
                 break;
             case R.id.cardViewFirebase:
-                show("Google Firebase");
+                startActivity(new Intent(getApplicationContext(), FirebaseActivity.class));
+                break;
+            case R.id.cardViewCarrapicho:
+                startActivity(new Intent(getApplicationContext(), PiadaListActivity.class));
                 break;
             default:
                 Log.d("Defaul: ","Deu ruim...");

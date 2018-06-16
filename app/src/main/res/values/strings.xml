@@ -7,5 +7,7 @@
     <string name="firebase_title">Google Firebase</string>
     <string name="firebase_content">O Google Firebase é uma plataforma de serviços de backend para dispositivos móveis que dentre sua gama de serviços oferece o Real-time Database para Android, já integrado ao Android Studio.</string>
     <string name="title_activity_sqlite">SQLiteActivity</string>
+    <string name="carrapicho_content">A Carrapicho é a revista que te endende, a melhor revista feminina do mundo!.</string>
+    <string name="carrapicho_title">Carrapicho</string>
 
 </resources>
