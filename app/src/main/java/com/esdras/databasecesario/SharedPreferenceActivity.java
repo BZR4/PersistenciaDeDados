@@ -15,7 +15,7 @@ public class SharedPreferenceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shared_preference);
 
-        TextView textView = findViewById(R.id.textViewWord);
+        TextView textView = findViewById(R.id.textViewPiada);
         SharedPreferences mSharedPreferences = getPreferences(MODE_PRIVATE);
         String nome = mSharedPreferences.getString(NAME, null);
         if (nome != null){

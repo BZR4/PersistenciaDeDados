@@ -8,6 +8,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -44,8 +45,8 @@ public class SQLiteActivity extends AppCompatActivity {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
          @Override
          public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-             Toast.makeText(SQLiteActivity.this,
-                     mDB.getDefinition(id),Toast.LENGTH_SHORT).show();
+             Log.d("Position/ID: ",position + " - "+id);
+             Toast.makeText(SQLiteActivity.this, mDB.getDefinition(id).toString(),Toast.LENGTH_SHORT).show();
          } });
 
         mListView.setOnItemLongClickListener(new

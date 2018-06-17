@@ -17,13 +17,20 @@
             </intent-filter>
         </activity>
         <activity android:name=".SharedPreferenceActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".MainActivity"/>
         </activity>
-        <activity
-            android:name=".SQLiteActivity"
-            android:label="@string/title_activity_sqlite"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".FirebaseActivity" />
-        <activity android:name=".PiadaListActivity"></activity>
+
+        <activity android:name=".SQLiteActivity" android:label="SQLite Database"  android:theme="@style/AppTheme.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".MainActivity"/>
+        </activity>
+
+        <activity android:name=".FirebaseActivity" android:theme="@style/NewAppTheme">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".MainActivity"/>
+        </activity>
+
+        <activity android:name=".PiadaListActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".PiadaListActivity"/>
+        </activity>
     </application>
 
 </manifest>

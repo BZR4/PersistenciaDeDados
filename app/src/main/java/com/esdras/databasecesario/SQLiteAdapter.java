@@ -34,19 +34,18 @@ public class SQLiteAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return Integer.valueOf(id.get(position));
     }
 
     public View getView(final int pos, View child, final ViewGroup parent) {
         Holder mHolder;
-        LayoutInflater layoutInflater;
         if (child == null) {
-            layoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            LayoutInflater layoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             child = layoutInflater.inflate(R.layout.cell_layout, null);
             mHolder = new Holder();
-            mHolder.txt_id = (TextView) child.findViewById(R.id.textViewId);
-            mHolder.txt_word = (TextView) child.findViewById(R.id.textViewWord);
-            mHolder.txt_definition = (TextView) child.findViewById(R.id.textViewDefinition);
+            mHolder.txt_id = child.findViewById(R.id.textViewId);
+            mHolder.txt_word = child.findViewById(R.id.textViewPiada);
+            mHolder.txt_definition = child.findViewById(R.id.textViewDefinition);
             child.setTag(mHolder);
         } else {
             mHolder = (Holder) child.getTag();
