@@ -15,6 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class FirebaseActivity extends AppCompatActivity {
 
+    //  Declaracao de objetos necessários ao Firebase
     FirebaseDatabase database;
     DatabaseReference reference;
     TextInputEditText piada, resposta;
@@ -24,7 +25,10 @@ public class FirebaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_firebase);
 
+        //  Criação de instancia
         database = FirebaseDatabase.getInstance();
+
+        //  Definicao do [nó] principal
         reference = database.getReference("cesario");
 
         piada = findViewById(R.id.textInputPiada);
@@ -52,16 +56,27 @@ public class FirebaseActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Método responsável por persistir uma piada no Firebase
+     * @param pergunta - String
+     * @param resposta - String
+     */
     public void criarPiada(String pergunta, String resposta){
         Piada piada = new Piada(pergunta,resposta);
         reference.push().setValue(piada);
         Toast.makeText(getApplicationContext(),"Piada Salva",Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * Método responsável por validar a entrada de dados no formulário.
+     * @param piada - String
+     * @param resposta - String
+     * @return
+     */
     public boolean validateForm(TextInputEditText piada, TextInputEditText resposta){
         boolean result = true;
         if (TextUtils.isEmpty(piada.getText().toString())){
-            piada.setError("OOps faltou a piada...");
+            piada.setError("OOoops faltou a piada...");
             result = false;
 
         }else{
@@ -69,13 +84,12 @@ public class FirebaseActivity extends AppCompatActivity {
         }
 
         if (TextUtils.isEmpty(resposta.getText().toString())){
-            resposta.setError("OOps faltou a resposta...");
+            resposta.setError("OOoops faltou a resposta...");
             result = false;
 
         }else{
             resposta.setError(null);
         }
-
         return result;
     }
 }

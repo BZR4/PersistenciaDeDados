@@ -16,17 +16,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    /** Método responsável por gerenciar a seleção da atividade selecionada, note que temos um menu
+     * de opções e iremos capturar o toque na tela e abrir a Activity
+     * selecionada.
+     *
+     * @param view
+     */
     public void doOpenActivity(View view){
 
+        //  Obtem o ID(R.id.selecionado)
         int id = view.getId();
         Intent mIntent;
 
+        //  Conforme o ID, uma Activity é inicializada
         switch (id){
             case R.id.cardViewSharedPreference:
                 startActivity(new Intent(getApplicationContext(), SharedPreferenceActivity.class));
                 break;
             case R.id.cardViewSQLite:
-//                show("SQLite");
                 startActivity(new Intent(getApplicationContext(), SQLiteActivity.class));
                 break;
             case R.id.cardViewFirebase:
@@ -40,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //  Mensagem para testes iniciais, não utilizada no momento...
     void show(String msg){
         Toast.makeText(getApplicationContext(),"Você selecionou "+msg,Toast.LENGTH_SHORT).show();
     }

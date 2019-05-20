@@ -1,5 +1,8 @@
 package com.esdras.databasecesario;
 
+/**
+ * Classe reponsável por estruturar as piadas do App.
+ */
 public class Piada {
 
     private String pergunta;
